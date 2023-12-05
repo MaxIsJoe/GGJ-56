@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpbd4kaihoa88"]
+
+[ext_resource type="PackedScene" uid="uid://cwwfwwp1h3e73" path="res://Scenes/Instances/UI/lootbox.tscn" id="1_iajni"]
+[ext_resource type="PackedScene" uid="uid://pbg7iavfqtsv" path="res://Scenes/Levels/corp_map.tscn" id="1_nnmqt"]
+[ext_resource type="PackedScene" uid="uid://bd8xomdj06cdh" path="res://Scenes/Instances/UI/general_ui.tscn" id="2_01un2"]
+[ext_resource type="Script" path="res://UIControl.gd" id="2_rsp0v"]
+[ext_resource type="PackedScene" uid="uid://cdlvw7065v17p" path="res://Scenes/Instances/UI/management_ui.tscn" id="3_ba70w"]
+[ext_resource type="PackedScene" uid="uid://dvxhn2a5ve68d" path="res://Scenes/Instances/UI/win_monster_screen.tscn" id="3_evv72"]
+[ext_resource type="Script" path="res://Scripts/InfoBox.gd" id="3_mv80e"]
+[ext_resource type="Shader" path="res://vsr.gdshader" id="3_s1kxj"]
+[ext_resource type="Texture2D" uid="uid://c4headl3pbnkn" path="res://Resources/Sprites/2scced.png" id="3_xytyr"]
+[ext_resource type="Theme" uid="uid://camdvfmwoewdr" path="res://Resources/management_ui.tres" id="7_hgrgr"]
+[ext_resource type="AudioStream" uid="uid://d2wlebofnivuk" path="res://Resources/Sounds/What French Hell is This.mp3" id="11_f0yfo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a1ub3"]
+shader = ExtResource("3_s1kxj")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.037
+shader_parameter/resolution = Vector2(1280, 960)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 0.521
+shader_parameter/roll_size = 8.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.018
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 2.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.00700005
+shader_parameter/brightness = 1.362
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.212
+
+[node name="Main" type="Node2D"]
+
+[node name="CorpMap" parent="." instance=ExtResource("1_nnmqt")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("2_rsp0v")
+
+[node name="WinMonsterPopup" parent="CanvasLayer" instance=ExtResource("3_evv72")]
+visible = false
+
+[node name="GeneralUI" parent="CanvasLayer" instance=ExtResource("2_01un2")]
+
+[node name="ManagementUI" parent="CanvasLayer" instance=ExtResource("3_ba70w")]
+visible = false
+
+[node name="Lootbox" parent="CanvasLayer" instance=ExtResource("1_iajni")]
+visible = false
+
+[node name="InfoBox" type="ColorRect" parent="CanvasLayer"]
+offset_left = 300.0
+offset_top = 541.0
+offset_right = 996.0
+offset_bottom = 614.0
+theme = ExtResource("7_hgrgr")
+color = Color(0, 0, 0, 0.47451)
+script = ExtResource("3_mv80e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/InfoBox"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 14.0
+offset_right = 677.0
+offset_bottom = 61.0
+bbcode_enabled = true
+text = "hello mister data miner or unlucky person who encountered a bug"
+
+[node name="Jumpscare" type="TextureRect" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.12549)
+offset_left = 637.0
+offset_top = -20.0
+offset_right = 1110.0
+offset_bottom = 722.0
+mouse_filter = 2
+mouse_default_cursor_shape = 8
+texture = ExtResource("3_xytyr")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_a1ub3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -21.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f0yfo")
+volume_db = -16.0
+autoplay = true

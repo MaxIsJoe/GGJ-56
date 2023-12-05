@@ -1,0 +1,481 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwwfwwp1h3e73"]
+
+[ext_resource type="Script" path="res://Scenes/Instances/UI/Wheel.gd" id="1_q2aop"]
+[ext_resource type="Texture2D" uid="uid://drpstpm8qqm0p" path="res://icon.svg" id="2_eigc1"]
+[ext_resource type="Script" path="res://Scenes/Instances/UI/WinPointerLoot.gd" id="3_mfk20"]
+[ext_resource type="AudioStream" uid="uid://d04vsuw6b0488" path="res://Resources/Sounds/Freesound - Slotting Foot into Oil Radiator 2.wav by F.M.Aud.mp3" id="4_t7d3n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rqtb"]
+size = Vector2(249, 210)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o11gh"]
+size = Vector2(13, 225)
+
+[node name="Lootbox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q2aop")
+
+[node name="Wheel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -104.0
+offset_right = 580.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBC1" type="HBoxContainer" parent="Wheel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -636.0
+offset_top = -104.5
+offset_right = 630.0
+offset_bottom = 105.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Wheel/HBC1"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC1/ColorRect"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC1/ColorRect"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC1/ColorRect/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect2" type="ColorRect" parent="Wheel/HBC1"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC1/ColorRect2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC1/ColorRect2"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC1/ColorRect2/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect3" type="ColorRect" parent="Wheel/HBC1"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC1/ColorRect3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC1/ColorRect3"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC1/ColorRect3/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect4" type="ColorRect" parent="Wheel/HBC1"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC1/ColorRect4"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC1/ColorRect4"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC1/ColorRect4/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect5" type="ColorRect" parent="Wheel/HBC1"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC1/ColorRect5"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC1/ColorRect5"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC1/ColorRect5/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="HBC2" type="HBoxContainer" parent="Wheel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1903.0
+offset_top = -104.5
+offset_right = -637.0
+offset_bottom = 105.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Wheel/HBC2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC2/ColorRect"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC2/ColorRect"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC2/ColorRect/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect2" type="ColorRect" parent="Wheel/HBC2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC2/ColorRect2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC2/ColorRect2"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC2/ColorRect2/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect3" type="ColorRect" parent="Wheel/HBC2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC2/ColorRect3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC2/ColorRect3"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC2/ColorRect3/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect4" type="ColorRect" parent="Wheel/HBC2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC2/ColorRect4"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC2/ColorRect4"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC2/ColorRect4/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect5" type="ColorRect" parent="Wheel/HBC2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC2/ColorRect5"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC2/ColorRect5"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC2/ColorRect5/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="HBC3" type="HBoxContainer" parent="Wheel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 635.0
+offset_top = -104.5
+offset_right = 1901.0
+offset_bottom = 105.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Wheel/HBC3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC3/ColorRect"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC3/ColorRect"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC3/ColorRect/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect2" type="ColorRect" parent="Wheel/HBC3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC3/ColorRect2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC3/ColorRect2"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC3/ColorRect2/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect3" type="ColorRect" parent="Wheel/HBC3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC3/ColorRect3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC3/ColorRect3"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC3/ColorRect3/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect4" type="ColorRect" parent="Wheel/HBC3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC3/ColorRect4"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC3/ColorRect4"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC3/ColorRect4/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect5" type="ColorRect" parent="Wheel/HBC3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0.180392, 0, 0.501961, 0.352941)
+
+[node name="TextureRect" type="TextureRect" parent="Wheel/HBC3/ColorRect5"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 254.0
+offset_bottom = 201.0
+texture = ExtResource("2_eigc1")
+stretch_mode = 5
+script = ExtResource("3_mfk20")
+
+[node name="Area2D" type="Area2D" parent="Wheel/HBC3/ColorRect5"]
+position = Vector2(59, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/HBC3/ColorRect5/Area2D"]
+position = Vector2(67.5, 108)
+shape = SubResource("RectangleShape2D_1rqtb")
+
+[node name="ColorRect" type="ColorRect" parent="Wheel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -110.5
+offset_right = 3.5
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.835294, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="Wheel/ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/ColorRect/Area2D"]
+position = Vector2(4, 110.5)
+shape = SubResource("RectangleShape2D_o11gh")
+
+[node name="Winner" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -73.0
+offset_right = 140.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center]SPIN"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -32.0
+offset_right = 105.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SPIN"
+
+[node name="SlotSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t7d3n")
+
+[connection signal="area_entered" from="Wheel/ColorRect/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="button_down" from="Button" to="Wheel" method="_on_button_button_down"]

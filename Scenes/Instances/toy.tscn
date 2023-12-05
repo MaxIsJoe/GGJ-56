@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://brswh2jg1u7nw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ij086"]
+load_path = "res://.godot/imported/pixelart_skull.png-b3b0a14bf4ac2e8d20e543eb38c76131.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2s2w"]
+size = Vector2(26, 26)
+
+[node name="Toy" type="CharacterBody2D" groups=["toy"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0.500003)
+scale = Vector2(0.105469, 0.111328)
+texture = SubResource("CompressedTexture2D_ij086")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_v2s2w")

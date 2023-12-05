@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtxt03akga2tt"]
+
+[ext_resource type="Script" path="res://Scripts/monster/monster_manager.gd" id="1_2ekst"]
+[ext_resource type="PackedScene" uid="uid://dmqdc43xy666u" path="res://Scenes/Instances/monster.tscn" id="2_3qbdo"]
+[ext_resource type="PackedScene" uid="uid://cjfgguatuhv2e" path="res://Scenes/Instances/Monsters/monster_npc.tscn" id="3_bvdbc"]
+
+[node name="MonsterManager" type="Node"]
+script = ExtResource("1_2ekst")
+MonsterScene = ExtResource("2_3qbdo")
+MonsterNPCScene = ExtResource("3_bvdbc")
+
+[node name="InWorld" type="Node" parent="."]
+
+[node name="InStock" type="Node" parent="."]
+
+[node name="AtWork" type="Node2D" parent="."]
+visible = false
+
+[node name="Graveyard" type="Node2D" parent="."]
+visible = false

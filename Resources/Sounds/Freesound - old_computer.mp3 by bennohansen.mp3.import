@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blsghmw0do0dt"
+path="res://.godot/imported/Freesound - old_computer.mp3 by bennohansen.mp3-966d6b068893178e461faa7d3972d00d.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sounds/Freesound - old_computer.mp3 by bennohansen.mp3"
+dest_files=["res://.godot/imported/Freesound - old_computer.mp3 by bennohansen.mp3-966d6b068893178e461faa7d3972d00d.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

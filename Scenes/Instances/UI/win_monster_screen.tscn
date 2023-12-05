@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvxhn2a5ve68d"]
+
+[ext_resource type="Theme" uid="uid://camdvfmwoewdr" path="res://Resources/management_ui.tres" id="1_fylb7"]
+[ext_resource type="Script" path="res://Scenes/Instances/UI/win_monster_screen.gd" id="2_0gp6r"]
+[ext_resource type="Texture2D" uid="uid://drpstpm8qqm0p" path="res://icon.svg" id="2_nvsve"]
+
+[node name="WinMonsterPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fylb7")
+script = ExtResource("2_0gp6r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.0
+offset_top = -246.0
+offset_right = -271.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.84, 4.28)
+color = Color(0.521569, 0.521569, 0.521569, 1)
+
+[node name="Bar" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 195.0
+color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/Bar"]
+layout_mode = 0
+offset_right = 195.0
+offset_bottom = 8.0
+bbcode_enabled = true
+text = "[font_size=7][center][rainbow]Congrats![/rainbow]"
+scroll_active = false
+
+[node name="Info" type="Control" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MonsterIcon" type="TextureRect" parent="ColorRect/Info"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 16.0
+offset_right = 124.0
+offset_bottom = 68.0
+texture = ExtResource("2_nvsve")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="YouveWonA" type="RichTextLabel" parent="ColorRect/Info"]
+layout_mode = 0
+offset_right = 195.0
+offset_bottom = 16.0
+bbcode_enabled = true
+text = "[font_size=11][center]You've won: Godot Monster"
+scroll_active = false
+
+[node name="InfoLabel" type="RichTextLabel" parent="ColorRect/Info"]
+visible = false
+layout_mode = 0
+offset_left = 76.0
+offset_top = 68.0
+offset_right = 116.0
+offset_bottom = 76.0
+bbcode_enabled = true
+text = "[center][font_size=5]Info:"
+scroll_active = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/Info"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 74.0
+offset_right = 189.0
+offset_bottom = 107.0
+bbcode_enabled = true
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 179.959
+offset_top = -7.71028
+offset_right = 193.959
+offset_bottom = -0.710281
+theme_override_font_sizes/font_size = 5
+text = "OK"
+
+[connection signal="button_down" from="ColorRect/Button" to="." method="_on_button_button_down"]

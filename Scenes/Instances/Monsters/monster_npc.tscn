@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjfgguatuhv2e"]
+
+[ext_resource type="Texture2D" uid="uid://d4nq3t3pvgl47" path="res://Resources/Sprites/Monsters/monster1.png" id="1_6h63e"]
+[ext_resource type="Script" path="res://Scenes/Instances/Monsters/monster_npc.gd" id="1_riagf"]
+[ext_resource type="Texture2D" uid="uid://dw2lh8yupesg" path="res://Resources/Sprites/heart_full.png" id="3_fbs4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rau8n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rb124"]
+radius = 19.1949
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4mtb6"]
+radius = 180.001
+
+[node name="MonsterNPC" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_riagf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rau8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6h63e")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 25.0
+target_desired_distance = 25.0
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rb124")
+
+[node name="FoodSearch" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodSearch"]
+shape = SubResource("CircleShape2D_4mtb6")
+debug_color = Color(0.266667, 0, 0.196078, 0.419608)
+
+[node name="StatusDisplay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -25.3333
+offset_right = 20.0
+offset_bottom = 24.6667
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StatusDisplay"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -9.0
+offset_right = 73.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "[center]my name is dimitry"
+
+[node name="HappinessBar" type="TextureProgressBar" parent="StatusDisplay"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 16.6666
+offset_right = 53.0
+offset_bottom = 31.6666
+value = 100.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("3_fbs4h")
+
+[node name="GoalDecider" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="AttackDelay" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="GoalDecider" to="." method="_on_goal_decider_timeout"]
+[connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]

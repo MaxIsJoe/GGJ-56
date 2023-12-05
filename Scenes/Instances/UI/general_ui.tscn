@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd8xomdj06cdh"]
+
+[ext_resource type="Theme" uid="uid://camdvfmwoewdr" path="res://Resources/management_ui.tres" id="1_s568o"]
+[ext_resource type="Script" path="res://Scenes/Instances/UI/general_ui.gd" id="1_u2ou0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fija5"]
+bg_color = Color(0.568627, 0.0588235, 0, 1)
+
+[node name="GeneralUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_s568o")
+script = ExtResource("1_u2ou0")
+
+[node name="ResourceMonitor" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -639.0
+offset_top = -62.0
+offset_right = 642.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Money" type="RichTextLabel" parent="ResourceMonitor"]
+custom_minimum_size = Vector2(145, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Money: 1000"
+
+[node name="Resource" type="RichTextLabel" parent="ResourceMonitor"]
+custom_minimum_size = Vector2(145, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Resources: 1000"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 680.0
+offset_right = 1280.0
+offset_bottom = 707.0
+tooltip_text = "Current Zone Stability. Avoid gettings this over 35% if you don't want to die."
+theme_override_styles/fill = SubResource("StyleBoxFlat_fija5")
+value = 50.0
+allow_lesser = true

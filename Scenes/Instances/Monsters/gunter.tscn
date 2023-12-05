@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjkp1d5m4odwd"]
+
+[ext_resource type="Script" path="res://Scenes/Instances/Monsters/gunter.gd" id="1_4o5tr"]
+[ext_resource type="Texture2D" uid="uid://bdd1ehjv7b8tb" path="res://Resources/Sprites/Monsters/gunter.png" id="1_iocnl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twmjr"]
+size = Vector2(20, 23)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwsvj"]
+radius = 122.037
+
+[node name="Gunter" type="CharacterBody2D"]
+script = ExtResource("1_4o5tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 4.5)
+shape = SubResource("RectangleShape2D_twmjr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iocnl")
+
+[node name="AttackRaidus" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRaidus"]
+shape = SubResource("CircleShape2D_qwsvj")
+debug_color = Color(0.25098, 0.00392157, 0.0352941, 0.219608)
+
+[node name="agent" type="NavigationAgent2D" parent="."]
+path_desired_distance = 30.0
+avoidance_enabled = true
+radius = 40.0
+debug_enabled = true
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+
+[node name="TaskTimer" type="Timer" parent="."]
+wait_time = 2.2
+autostart = true
+
+[node name="FireDelay" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TaskTimer" to="." method="_on_task_timer_timeout"]
+[connection signal="timeout" from="FireDelay" to="." method="_on_fire_delay_timeout"]

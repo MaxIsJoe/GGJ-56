@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciot3w2ljp8ym"]
+
+[ext_resource type="Script" path="res://Scenes/Instances/Managers/sound_hooker.gd" id="1_21c6j"]
+[ext_resource type="AudioStream" uid="uid://brenujebr8dt2" path="res://Resources/Sounds/Freesound - click1_long.wav by nirmatara.mp3" id="2_o645l"]
+[ext_resource type="AudioStream" uid="uid://blsghmw0do0dt" path="res://Resources/Sounds/Freesound - old_computer.mp3 by bennohansen.mp3" id="2_vpwr5"]
+
+[node name="SoundHooker" type="Node"]
+script = ExtResource("1_21c6j")
+
+[node name="ComputerNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vpwr5")
+volume_db = -35.0
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o645l")

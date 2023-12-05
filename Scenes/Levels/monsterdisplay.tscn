@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://2tnv2mqa7yq3"]
+
+[ext_resource type="Texture2D" uid="uid://d4nq3t3pvgl47" path="res://Resources/Sprites/Monsters/monster1.png" id="1_qb216"]
+[ext_resource type="Texture2D" uid="uid://bhvc53djhn10v" path="res://Resources/Sprites/Monsters/monster2.png" id="2_wmw4v"]
+[ext_resource type="Texture2D" uid="uid://br6c1rud44l61" path="res://Resources/Sprites/Monsters/monster3.png" id="3_ok4ej"]
+[ext_resource type="Texture2D" uid="uid://b8ri0owmvvc25" path="res://Resources/Sprites/Monsters/monster4.png" id="4_nl1mt"]
+[ext_resource type="Texture2D" uid="uid://cx72wtae2u47e" path="res://Resources/Sprites/Monsters/monster5.png" id="5_hoyte"]
+[ext_resource type="Texture2D" uid="uid://d4nut1y1eowak" path="res://Resources/Sprites/Monsters/monster6.png" id="6_tx68w"]
+[ext_resource type="Texture2D" uid="uid://b1kx6sulobe3t" path="res://Resources/Sprites/Monsters/monster7.png" id="7_30ped"]
+[ext_resource type="Texture2D" uid="uid://dv2p56kyhpxdj" path="res://Resources/Sprites/Monsters/monster8.png" id="8_qcot0"]
+[ext_resource type="Texture2D" uid="uid://d0x4x3b0scu6c" path="res://Resources/Sprites/Monsters/monster9.png" id="9_omhmc"]
+[ext_resource type="Texture2D" uid="uid://domfb2k41q7ni" path="res://Resources/Sprites/Monsters/monster10.png" id="10_160du"]
+
+[node name="monsterdisplay" type="Node2D"]
+
+[node name="Monster1" type="Sprite2D" parent="."]
+position = Vector2(261, 324)
+texture = ExtResource("1_qb216")
+
+[node name="Monster2" type="Sprite2D" parent="."]
+position = Vector2(315, 329)
+texture = ExtResource("2_wmw4v")
+
+[node name="Monster3" type="Sprite2D" parent="."]
+position = Vector2(383, 325)
+texture = ExtResource("3_ok4ej")
+
+[node name="Monster4" type="Sprite2D" parent="."]
+position = Vector2(447, 327)
+texture = ExtResource("4_nl1mt")
+
+[node name="Monster5" type="Sprite2D" parent="."]
+position = Vector2(511, 329)
+texture = ExtResource("5_hoyte")
+
+[node name="Monster6" type="Sprite2D" parent="."]
+position = Vector2(559, 329)
+texture = ExtResource("6_tx68w")
+
+[node name="Monster7" type="Sprite2D" parent="."]
+position = Vector2(610, 327)
+texture = ExtResource("7_30ped")
+
+[node name="Monster8" type="Sprite2D" parent="."]
+position = Vector2(659, 327)
+texture = ExtResource("8_qcot0")
+
+[node name="Monster9" type="Sprite2D" parent="."]
+position = Vector2(706, 330)
+texture = ExtResource("9_omhmc")
+
+[node name="Monster10" type="Sprite2D" parent="."]
+position = Vector2(743, 330)
+texture = ExtResource("10_160du")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(505, 321)
+zoom = Vector2(2.326, 2.326)

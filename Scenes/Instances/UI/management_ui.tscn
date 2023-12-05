@@ -1,0 +1,447 @@
+[gd_scene load_steps=14 format=3 uid="uid://cdlvw7065v17p"]
+
+[ext_resource type="Theme" uid="uid://camdvfmwoewdr" path="res://Resources/management_ui.tres" id="1_rng8l"]
+[ext_resource type="Script" path="res://Scenes/Instances/UI/management_ui.gd" id="2_tvsna"]
+[ext_resource type="Texture2D" uid="uid://dm15fix6j6iji" path="res://Resources/Sprites/treasure_chests_32x32.png" id="2_vh0ka"]
+[ext_resource type="Script" path="res://Scenes/Instances/UI/Shop.gd" id="3_8pdmw"]
+[ext_resource type="Script" path="res://addons/graph_2d/graph_2d.gd" id="3_qbohp"]
+[ext_resource type="Texture2D" uid="uid://drpstpm8qqm0p" path="res://icon.svg" id="4_6fo5t"]
+[ext_resource type="Texture2D" uid="uid://c8v5hgolxlvt4" path="res://Resources/Sprites/Food.png" id="4_057xl"]
+[ext_resource type="Script" path="res://addons/graph_2d/custom_nodes/legend.gd" id="4_w4gge"]
+[ext_resource type="Texture2D" uid="uid://mgq6w3y6elod" path="res://Resources/Sprites/pixelart_skull.png" id="5_2wrd3"]
+[ext_resource type="Script" path="res://addons/graph_2d/custom_nodes/coordinate.gd" id="5_uyn5o"]
+[ext_resource type="Script" path="res://addons/graph_2d/custom_nodes/axis.gd" id="7_olk3c"]
+[ext_resource type="Script" path="res://addons/graph_2d/custom_nodes/grid.gd" id="8_ismwr"]
+[ext_resource type="Script" path="res://Scenes/Instances/UI/Data.gd" id="8_wjypp"]
+
+[node name="ManagementUI" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rng8l")
+script = ExtResource("2_tvsna")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="Buttons" type="VBoxContainer" parent="Background"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 1.0
+offset_right = 284.0
+offset_bottom = 721.0
+theme = ExtResource("1_rng8l")
+alignment = 1
+
+[node name="ButtonShop" type="Button" parent="Background/Buttons"]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+text = "Shop"
+
+[node name="ButtonData" type="Button" parent="Background/Buttons"]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+text = "Data"
+
+[node name="ButtonHelp" type="Button" parent="Background/Buttons"]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+text = "Help"
+
+[node name="ButtonQuit" type="Button" parent="Background/Buttons"]
+custom_minimum_size = Vector2(90, 50)
+layout_mode = 2
+text = "Quit"
+
+[node name="Pages" type="Control" parent="Background"]
+anchors_preset = 0
+offset_left = 301.0
+offset_top = 45.0
+offset_right = 1235.0
+offset_bottom = 680.0
+
+[node name="HelpPage" type="Control" parent="Background/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Background/Pages/HelpPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Standard Guide" type="TabBar" parent="Background/Pages/HelpPage/TabContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/Pages/HelpPage/TabContainer/Standard Guide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = -11.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font_size=20]
+[center] Standard Guide, by [color=red][REDACTED][/color].[/center]
+
+Monsters come in 4 types and different rarities. Different types of monsters generate different resources and behave differently in the portal and containment zone, understanding how these types work is a [b]must[/b] as you cannot throw anything into the portal and expect them to work.
+
+[b]Type 1[/b] - Peaceful Monsters.
+Peaceful monsters reduce instability while at work as long as they're in a happy mood. They're largely harmless, but if threatened; they will attempt to fight back.
+
+[b]Type 2[/b] - Resource Monsters.
+
+It is unknown how they generate such high amounts of essence, but they're incredibly good at it, so corpo agreed to let them scour whatever lies beyond the portal. They tend to be incredibly materialistic, and will attempt to hoard all rations and entertainment devices we throw in the containment zone, even if they do not need it.
+
+[b]Type 3[/b] - Fear Monsters.
+
+Feeds off gossip, lies and paranoia. Fear Monsters are social fiends that can reduce the happiness of anything near it. Our scientists warned agaisnt utilising them for anything as they have been caught spreading mass hysteria before on nation-wide levels, but corpo ignored all warnings as they do generate essence and profit from the fear they feed on.
+
+[b]Type 4[/b] - Pain Monsters.
+
+Incredibly dangerous and violent. Produces more instability than any other monster type and has a chance to randomly attack other monsters even if their happiness is reported to be above 50%.
+
+[center]-------[/center]
+
+To make the most amount of profit, find a balance between all monster types and remember to keep them fed and entertained.
+To obtain more monsters, head to the shop and use the lottery system to summon a random monster into containment.
+Food restore health, while toys restore happiness.
+
+Good Luck,
+[REDACTED]"
+
+[node name="Self-Protection Guide" type="TabBar" parent="Background/Pages/HelpPage/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/Pages/HelpPage/TabContainer/Self-Protection Guide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = -11.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font_size=55]
+
+[shake]Nothing is worth the risk.[/shake]
+Put them all in the blender and let the stability go haywire, let those in the shadows show up and take it over; it was never ours.
+
+You will meet my same fate, it doesn't matter if we both fail or make them a boat load of cash; its either that thing that's watching you behind your back that will get you or them \"decommissioning\" you.
+
+Greed is the real monster here."
+
+[node name="Shop" type="Control" parent="Background/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_8pdmw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Pages/Shop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ShopItemFood" type="Control" parent="Background/Pages/Shop/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="Sprite2D" parent="Background/Pages/Shop/VBoxContainer/ShopItemFood"]
+position = Vector2(27, 26)
+scale = Vector2(3, 2.875)
+texture = ExtResource("4_057xl")
+hframes = 8
+vframes = 8
+frame = 9
+
+[node name="ItemLabel" type="RichTextLabel" parent="Background/Pages/Shop/VBoxContainer/ShopItemFood"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 7.0
+offset_right = 700.0
+offset_bottom = 47.0
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "Food"
+
+[node name="ItemPrice" type="RichTextLabel" parent="Background/Pages/Shop/VBoxContainer/ShopItemFood"]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 7.0
+offset_right = 700.0
+offset_bottom = 47.0
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "50.990$"
+
+[node name="ButtonFood" type="Button" parent="Background/Pages/Shop/VBoxContainer/ShopItemFood"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 6.0
+offset_right = 947.0
+offset_bottom = 40.0
+text = "BUY"
+
+[node name="ShopItemToys" type="Control" parent="Background/Pages/Shop/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="Sprite2D" parent="Background/Pages/Shop/VBoxContainer/ShopItemToys"]
+position = Vector2(26.5, 27)
+scale = Vector2(0.0996094, 0.0976562)
+texture = ExtResource("5_2wrd3")
+
+[node name="ItemLabel" type="RichTextLabel" parent="Background/Pages/Shop/VBoxContainer/ShopItemToys"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 7.0
+offset_right = 700.0
+offset_bottom = 47.0
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "Toys"
+
+[node name="ButtonToys" type="Button" parent="Background/Pages/Shop/VBoxContainer/ShopItemToys"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 6.0
+offset_right = 947.0
+offset_bottom = 40.0
+text = "BUY"
+
+[node name="ItemPrice" type="RichTextLabel" parent="Background/Pages/Shop/VBoxContainer/ShopItemToys"]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 7.0
+offset_right = 726.0
+offset_bottom = 47.0
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "111.111$"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ShopItemLot" type="Control" parent="Background/Pages/Shop/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Pages/Shop/VBoxContainer/ShopItemLot"]
+position = Vector2(26, 28)
+scale = Vector2(2.1, 2.14815)
+texture = ExtResource("2_vh0ka")
+region_enabled = true
+region_rect = Rect2(160.871, 67.0577, 30.0724, 27.3026)
+
+[node name="ItemLabel" type="RichTextLabel" parent="Background/Pages/Shop/VBoxContainer/ShopItemLot"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 7.0
+offset_right = 700.0
+offset_bottom = 47.0
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "Monster Lottery"
+
+[node name="ButtonLot" type="Button" parent="Background/Pages/Shop/VBoxContainer/ShopItemLot"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 6.0
+offset_right = 947.0
+offset_bottom = 40.0
+text = "BUY"
+
+[node name="ItemPrice" type="RichTextLabel" parent="Background/Pages/Shop/VBoxContainer/ShopItemLot"]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 7.0
+offset_right = 709.0
+offset_bottom = 47.0
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "[wave][rainbow]33.666R"
+
+[node name="ShopItem" type="Control" parent="Background/Pages/Shop"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 0
+offset_right = 953.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/Pages/Shop/ShopItem"]
+layout_mode = 0
+offset_right = 53.0
+offset_bottom = 52.0
+texture = ExtResource("4_6fo5t")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemLabel" type="RichTextLabel" parent="Background/Pages/Shop/ShopItem"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 7.0
+offset_right = 700.0
+offset_bottom = 47.0
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "fuckshit"
+
+[node name="Button" type="Button" parent="Background/Pages/Shop/ShopItem"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 6.0
+offset_right = 947.0
+offset_bottom = 40.0
+text = "BUY"
+
+[node name="Data" type="Control" parent="Background/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_wjypp")
+
+[node name="TabContainer" type="TabContainer" parent="Background/Pages/Data"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Profits" type="Control" parent="Background/Pages/Data/TabContainer"]
+layout_mode = 2
+script = ExtResource("3_qbohp")
+x_max = 100.0
+x_label = "Time"
+y_max = 1000.0
+y_label = "Y"
+background_color = Color(0.0941176, 0.227451, 0.4, 1)
+grid_horizontal_visible = true
+grid_vertical_visible = true
+
+[node name="Background" type="ColorRect" parent="Background/Pages/Data/TabContainer/Profits"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.0117647, 0.00784314, 0, 1)
+
+[node name="PlotArea" type="Control" parent="Background/Pages/Data/TabContainer/Profits"]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -50.0
+
+[node name="Legend" type="Control" parent="Background/Pages/Data/TabContainer/Profits/PlotArea"]
+anchors_preset = 0
+script = ExtResource("4_w4gge")
+
+[node name="77047" type="VBoxContainer" parent="Background/Pages/Data/TabContainer/Profits/PlotArea/Legend"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 10.0
+offset_bottom = 20.0
+
+[node name="Coordinate" type="Label" parent="Background/Pages/Data/TabContainer/Profits/PlotArea"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = -20.0
+grow_horizontal = 0
+text = "(0.0, 0.0)"
+script = ExtResource("5_uyn5o")
+
+[node name="Axis" type="Control" parent="Background/Pages/Data/TabContainer/Profits"]
+anchors_preset = 0
+script = ExtResource("7_olk3c")
+
+[node name="XLabel" type="Label" parent="Background/Pages/Data/TabContainer/Profits/Axis"]
+layout_mode = 0
+offset_left = 484.5
+offset_top = 580.0
+offset_right = 540.5
+offset_bottom = 606.0
+text = "Time"
+
+[node name="YLabel" type="Label" parent="Background/Pages/Data/TabContainer/Profits/Axis"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 295.0
+offset_right = 15.0
+offset_bottom = 321.0
+rotation = -1.5708
+text = "Y"
+
+[node name="Grid" type="Control" parent="Background/Pages/Data/TabContainer/Profits"]
+anchors_preset = 0
+script = ExtResource("8_ismwr")
+
+[node name="Collected Monsters" type="Control" parent="Background/Pages/Data/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CollectedNumber" type="RichTextLabel" parent="Background/Pages/Data/TabContainer/Collected Monsters"]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 31.0
+offset_right = 934.0
+offset_bottom = 52.0
+bbcode_enabled = true
+text = "[center]0/144 Unique Monsters Collected"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/Pages/Data/TabContainer/Collected Monsters"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 52.0
+offset_right = 931.0
+offset_bottom = 631.0
+
+[node name="MonsterVList" type="VBoxContainer" parent="Background/Pages/Data/TabContainer/Collected Monsters/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="button_down" from="Background/Buttons/ButtonShop" to="." method="_on_button_shop_button_down"]
+[connection signal="button_down" from="Background/Buttons/ButtonData" to="." method="_on_button_data_button_down"]
+[connection signal="button_down" from="Background/Buttons/ButtonHelp" to="." method="_on_button_help_button_down"]
+[connection signal="button_down" from="Background/Buttons/ButtonQuit" to="." method="_on_button_quit_button_down"]
+[connection signal="button_down" from="Background/Pages/Shop/VBoxContainer/ShopItemFood/ButtonFood" to="Background/Pages/Shop" method="_on_button_food_button_down"]
+[connection signal="button_down" from="Background/Pages/Shop/VBoxContainer/ShopItemToys/ButtonToys" to="Background/Pages/Shop" method="_on_button_toys_button_down"]
+[connection signal="button_down" from="Background/Pages/Shop/VBoxContainer/ShopItemLot/ButtonLot" to="Background/Pages/Shop" method="_on_button_lot_button_down"]
+[connection signal="visibility_changed" from="Background/Pages/Data" to="Background/Pages/Data" method="_on_visibility_changed"]
